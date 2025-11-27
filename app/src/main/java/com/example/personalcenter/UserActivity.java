@@ -1,6 +1,7 @@
 package com.example.personalcenter;
 
 import android.os.Bundle;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -10,15 +11,15 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class UserActivity extends AppCompatActivity {
 
+    private String account;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_user);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
-        });
+
+        // 接收从 LoginActivity 传过来的账号
+        account = getIntent().getStringExtra("account");
+        Toast.makeText(UserActivity.this,account,Toast.LENGTH_SHORT).show();
     }
 }
