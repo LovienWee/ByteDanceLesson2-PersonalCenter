@@ -34,6 +34,7 @@
             android:layout_marginStart="20dp"
             android:layout_marginTop="20dp"
             android:clickable="true"
+            android:maxLength="12"
             android:text="路人甲"
             android:textColor="@color/info_change_color"
             android:textSize="20sp"
